@@ -1,0 +1,33 @@
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+.quizBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    max-width: 800px;
+    border: 1px solid gray;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+}
+.quizQuestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.quizOption {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px;
+}
+.submitButton {
+    max-width: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
