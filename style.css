@@ -1,33 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #ffffff;
+    color: #363946;
+}
+.quizStart {
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin-top: 150px;
+}
 h1 {
     text-align: center;
+    margin-bottom: 20px;
+    color: #363946;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+button {
+    padding: 20px;
+    border: none;
+    background-color: #58B9F7;
+    color: #363946;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 40px
+}
+button:hover, button:focus {
+    background-color: #363946;
+    color: #58B9F7
+}
+main div {
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+label {
+    padding: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    background-color: #ffffff;
+    color: #363946;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    line-height: 22px;
+    border: 1px solid #CC0000; 
+}
+label:hover, label:focus {
+    background-color: #58B9F7
+}
+fieldset {
+    border: 1px;
+}
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    transition: 0.2s all linear;
+    outline: none;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}
+input:checked {
+    border: 8px solid #CC0000;
+}
+input[type=radio] {
+    flex: 0 0 auto;
+    margin-right: 10px;
 }
 h2 {
+    text-align: left;
+    margin-bottom: 40px;
+    color: #363946;
+    text-transform: uppercase
+}
+form button {
+    padding: 20px;
+    border: none;
+    background-color: #CC0000;
+    color: #363946;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 0;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 50%;
     text-align: center;
 }
-.quizBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    max-width: 800px;
-    border: 1px solid gray;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 20px;
+form button:hover, form button:focus {
+    background-color: #363946;
+    color: #CC0000
 }
-.quizQuestion {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+.answer {
+    flex: 1 1 auto;
 }
-.quizOption {
-    border: 1px solid gray;
-    padding: 10px;
-    margin: 10px;
+.questionAnswerForm {
+    display: none;
+    width: 50%;
 }
-.submitButton {
-    max-width: 50px;
-    margin-right: auto;
-    margin-left: auto;
+.feedback {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background: #fff;
+    padding-top: 40px
+}
+.feedback button {
+    width: 100%
+}
+.feedback p {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    margin-left: 20px;
+    margin-right: 20px
+}
+.feedback span {
+    color: #CC0000;
+}
+
+h3 {
+    color: #CC0000;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.results p:first-of-type {
+    font-size: 25px;
+    margin-bottom: 10px
+}
+.results p {
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 0
+}
+.restartButton {
+    margin-top: 40px
 }
