@@ -3,7 +3,7 @@ const quizQuestions = [
         question: 'When was the city founded?',
         answers: [1833, 1847, 1818, 1866],
         correctAnswer: 1833
-    },
+    }/*,
     {
         question: 'How many stars does the city flag have?',
         answers: [13, 5, 4, 50],
@@ -53,20 +53,20 @@ const quizQuestions = [
         question: 'How many "L" lines are there in Chicago?',
         answers: [5, 2, 12, 8],
         correctAnswer: 8
-    }
+    }*/
 ];
 
 
 
 //Variable that keeps track on what question number the user is on
-let number = 0;
+let questionNumber = 0;
 //Variable that keeps track of how many questions the user has gotten right
 let score = 0;
 
 //This function will create the question the user has to answer
 function generateQuestion () {
   for (let i = 0; i < quizQuestions.length; i++) {
-    return `<div class="question-${number}">
+    return `<div class="question-${questionNumber}">
     <h2>${quizQuestions[i].question}</h2>
     <form>
         <fieldset>
@@ -93,22 +93,47 @@ function generateQuestion () {
     } 
 }
 
-//This function will increase the question number as the user clicks through the quiz
-function changeQuestionNumber () {
-    number ++;
-  $('.questionNumber').text(number);
-}
-//This function will remove the "landing page", and then show the quiz formate that we created above
-function startQuiz () {
-  $('.quizStart').on('click', '.startButton', function (event) {
-    $('.quizStart').remove();
-    $('.questionAnswerForm').css('display', 'block');
+
+//This function will remove the "landing page", and then show the quiz format that we created above
+function beginQuiz () {
+  $('.startQuiz').on('click', '.startButton', function (event) {
+    $('.startQuiz').remove();
+    $('.quizForm').css('display', 'block');
     $('.questionNumber').text(1);
 });
 }
+
+//This function will increase the question number as the user clicks through the quiz
+function changeQuestionNumber () {
+  questionNumber ++;
+$('.questionNumber').text(questionNumber);
+}
+
 // This function will display the question, that we generated above, in the HTML.
 function renderQuestion () {
-  $('.questionAnswerForm').html(generateQuestion());
+  $('.quizForm').html(generateQuestion());
+}
+//This function will let the user know that they got the question right
+function userAnswerCorrect () {
+  let correctAnswer = `${quizQuestions[questionNumber].correctAnswer}`;
+  $('.quizForm').html(
+        `<div class="feedback">
+            <p>
+                <b>You got it right!</b>
+            </p>
+            <button type=button class="nextButton">Next</button>
+        </div>`);
+}
+//This function will display the correct answer and let the user know that they got the question wrong
+function userAnswerWrong () {
+  let correctAnswer = `${quizQuestions[questionNumber].correctAnswer}`;
+  $('.quizForm').html(
+      `<div class="feedback">
+            <p>
+                <b>You got it wrong</b><br>the correct answer is <span>"${correctAnswer}"</span>
+            </p>
+            <button type=button class="nextButton">Next</button>
+        </div>`);
 }
 //user selects answer on submit run user feedback
 function userSelectAnswer () {
@@ -116,7 +141,7 @@ function userSelectAnswer () {
     event.preventDefault();
     let selected = $('input:checked');
     let answer = selected.val();
-    let correctAnswer = `${quizQuestions[number].correctAnswer}`;
+    let correctAnswer = `${quizQuestions[questionNumber].correctAnswer}`;
     if (answer === correctAnswer) {
       selected.parent().addClass('correct');
       answerCorrect();
@@ -131,45 +156,19 @@ function updateScore () {
     score ++;
     $('.score').text(score);
 }
-function answerCorrect () {
+function answerCorrect() {
   userAnswerCorrect();
   updateScore();
 }
 
-function answerWrong () {
+function answerWrong() {
   userAnswerWrong();
 }
-
-//This function will let the user know that they got the question right
-function userAnswerCorrect () {
-  let correctAnswer = `${quizQuestions[number].correctAnswer}`;
-  $('.questionAnswerForm').html(
-        `<div class="feedback">
-            <p>
-                <b>You got it right!</b>
-            </p>
-            <button type=button class="nextButton">Next</button>
-        </div>`);
-}
-
-//This function will display the correct answer and let the user know that they got the question wrong
-function userAnswerWrong () {
-  let correctAnswer = `${quizQuestions[number].correctAnswer}`;
-  $('.questionAnswerForm').html(
-      `<div class="feedback">
-            <p>
-                <b>You got it wrong</b><br>the correct answer is <span>"${correctAnswer}"</span>
-            </p>
-            <button type=button class="nextButton">Next</button>
-        </div>`);
-}
-
-
 
 //when quiz is over this is the html for the page
 function renderResults () {
   if (score >= 7) {
-    $('.questionAnswerForm').html(
+    $('.quizForm').html(
         `<div class="results correctFeedback">
             <h3>You must have been born here!</h3>
                 <p>You got ${score} / 10</p>
@@ -177,7 +176,7 @@ function renderResults () {
                 <button class="restartButton">Restart Quiz</button>
         </div>`);
   } else {
-    $('.questionAnswerForm').html(
+    $('.quizForm').html(
         `<div class="results correctFeedback">
             <h3>First time visiting?</h3>
             <p>You got ${score} / 10</p>
@@ -191,7 +190,7 @@ function renderResults () {
 function renderNextQuestion () {
   $('main').on('click', '.nextButton', function (event) {
     changeQuestionNumber();
-    renderQuestion();
+    renderQuestion(quizQuestions);
     userSelectAnswer();
   });
 }
@@ -203,9 +202,9 @@ function restartQuiz () {
   });
 }
 
-//run quiz functions
+//This function runs all of the other functions needed to run the quiz
 function runQuiz () {
-  startQuiz();
+  beginQuiz();
   renderQuestion();
   userSelectAnswer();
   renderNextQuestion();

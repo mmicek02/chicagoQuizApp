@@ -3,11 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    background-color: #ffffff;
-    color: #363946;
+    background-image: url("images/chicagoBG.jpg");
+    background-position: fixed; 
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    color: #fff;
+    font-family: sans-serif;
+
 }
-.quizStart {
+.startQuiz {
     display: block;
     text-align: center;
     width: 50%;
@@ -25,17 +31,25 @@ button {
     padding: 20px;
     border: none;
     background-color: #58B9F7;
-    color: #363946;
+    color: #fff;
     font-size: 18px;
     text-transform: uppercase;
-    border-radius: 0;
+    border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 40px
+    margin-top: 40px;
+
+}
+.startButton {
+    width: 200px;
+}
+.startButton:hover, startButton:focus {
+    width: 280px;
 }
 button:hover, button:focus {
-    background-color: #363946;
-    color: #58B9F7
+    background-color: #58B9F7;
+    color: #fff;
+
 }
 main div {
     margin: 0 auto;
@@ -46,16 +60,18 @@ label {
     padding: 20px;
     margin-bottom: 10px;
     display: flex;
-    background-color: #ffffff;
-    color: #363946;
+    background: none;
+    color: #fff;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease-out;
     line-height: 22px;
-    border: 1px solid #CC0000; 
 }
 label:hover, label:focus {
-    background-color: #58B9F7
+    padding: 20px;
+    border: 1px solid #58B9F7;
+    border-radius: 25px; 
+    background-color: #58B9F7;
+    transition: all 0.5s ease;
 }
 fieldset {
     border: 1px;
@@ -75,14 +91,14 @@ input {
     top: 2px;
 }
 input:checked {
-    border: 8px solid #CC0000;
+    border: 8px solid #ffffff;
 }
 input[type=radio] {
     flex: 0 0 auto;
     margin-right: 10px;
 }
 h2 {
-    text-align: left;
+    text-align: center;
     margin-bottom: 40px;
     color: #363946;
     text-transform: uppercase
@@ -90,43 +106,49 @@ h2 {
 form button {
     padding: 20px;
     border: none;
-    background-color: #CC0000;
+    background-color: #58B9F7;
     color: #363946;
     font-size: 18px;
     text-transform: uppercase;
-    border-radius: 0;
+    border-radius: 25px;
     cursor: pointer;
     margin-top: 10px;
-    width: 50%;
+    width: 100%;
     text-align: center;
 }
 form button:hover, form button:focus {
-    background-color: #363946;
-    color: #CC0000
+    background-color: #fff;
+    color: #58B9F7
 }
 .answer {
     flex: 1 1 auto;
 }
-.questionAnswerForm {
+.quizForm {
     display: none;
     width: 50%;
+}
+.questionAndScore {
+    padding: 40px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
 .feedback {
     display: block;
     margin: 0 auto;
     text-align: center;
-    background: #fff;
-    padding-top: 40px
+    background: none;
+    padding-top: 200px;
 }
 .feedback button {
-    width: 100%
+    width: 100%;
 }
 .feedback p {
     font-size: 1.5em;
     line-height: 1.5em;
     text-transform: uppercase;
     margin-left: 20px;
-    margin-right: 20px
+    margin-right: 20px;
 }
 .feedback span {
     color: #CC0000;
@@ -139,13 +161,13 @@ h3 {
 }
 .results p:first-of-type {
     font-size: 25px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 .results p {
     font-size: 18px;
     line-height: 30px;
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 .restartButton {
-    margin-top: 40px
+    margin-top: 40px;
 }
