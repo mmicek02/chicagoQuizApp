@@ -3,7 +3,7 @@ const quizQuestions = [
         question: 'When was the city founded?',
         answers: [1833, 1847, 1818, 1866],
         correctAnswer: 1833
-    }/*,
+    },
     {
         question: 'How many stars does the city flag have?',
         answers: [13, 5, 4, 50],
@@ -53,7 +53,7 @@ const quizQuestions = [
         question: 'How many "L" lines are there in Chicago?',
         answers: [5, 2, 12, 8],
         correctAnswer: 8
-    }*/
+    }
 ];
 
 
@@ -65,32 +65,30 @@ let score = 0;
 
 //This function will create the question the user has to answer
 function generateQuestion () {
-  for (let i = 0; i < quizQuestions.length; i++) {
-    return `<div class="question-${questionNumber}">
-    <h2>${quizQuestions[i].question}</h2>
+return `<div class="question-${questionNumber}">
+    <h2>${quizQuestions[questionNumber].question}</h2>
     <form>
         <fieldset>
         <label class="answerOption">
-            <input type="radio" value="${quizQuestions[i].answers[0]}" name="answer" required>
-            <span>${quizQuestions[i].answers[0]}</span>
+            <input type="radio" value="${quizQuestions[questionNumber].answers[0]}" name="answer" required>
+            <span>${quizQuestions[questionNumber].answers[0]}</span>
         </label>
         <label class="answerOption">
-            <input type="radio" value="${quizQuestions[i].answers[1]}" name="answer" required>
-            <span>${quizQuestions[i].answers[1]}</span>
+            <input type="radio" value="${quizQuestions[questionNumber].answers[1]}" name="answer" required>
+            <span>${quizQuestions[questionNumber].answers[1]}</span>
         </label>
         <label class="answerOption">
-            <input type="radio" value="${quizQuestions[i].answers[2]}" name="answer" required>
-            <span>${quizQuestions[i].answers[2]}</span>
+            <input type="radio" value="${quizQuestions[questionNumber].answers[2]}" name="answer" required>
+            <span>${quizQuestions[questionNumber].answers[2]}</span>
         </label>
         <label class="answerOption">
-            <input type="radio" value="${quizQuestions[i].answers[3]}" name="answer" required>
-            <span>${quizQuestions[i].answers[3]}</span>
+            <input type="radio" value="${quizQuestions[questionNumber].answers[3]}" name="answer" required>
+            <span>${quizQuestions[questionNumber].answers[3]}</span>
         </label>
         <button type="submit" class="submitButton">Submit</button>
         </fieldset>
     </form>
     </div>`;
-    } 
 }
 
 
@@ -106,7 +104,7 @@ function beginQuiz () {
 //This function will increase the question number as the user clicks through the quiz
 function changeQuestionNumber () {
   questionNumber ++;
-$('.questionNumber').text(questionNumber);
+  $('.questionNumber').text(questionNumber);
 }
 
 // This function will display the question, that we generated above, in the HTML.
@@ -151,16 +149,16 @@ function userSelectAnswer () {
     }
   });
 }
-//This function updates the score when the user gets the question correct
-function updateScore () {
-    score ++;
-    $('.score').text(score);
-}
+
 function answerCorrect() {
   userAnswerCorrect();
   updateScore();
 }
-
+//This function updates the score when the user gets the question correct
+function updateScore () {
+  score++;
+  $('.score').text(score);
+}
 function answerWrong() {
   userAnswerWrong();
 }
@@ -187,10 +185,10 @@ function renderResults () {
 }
 
 //This funciton allows the user to move to the next funciton after seeing the result of the previous question
-function renderNextQuestion () {
+function displayNextQuestion () {
   $('main').on('click', '.nextButton', function (event) {
     changeQuestionNumber();
-    renderQuestion(quizQuestions);
+    renderQuestion();
     userSelectAnswer();
   });
 }
@@ -201,13 +199,22 @@ function restartQuiz () {
     location.reload();
   });
 }
+// This funtion is meant to show the results of the quiz after all the questions have been answered
+function endQuiz() {
+  if (questionNumber === quizQuestions.length - 1){
+     $('main').on('click', '.nextButton', function (event) {
+      renderResults();
+    });
+  }
+}
 
 //This function runs all of the other functions needed to run the quiz
 function runQuiz () {
   beginQuiz();
   renderQuestion();
   userSelectAnswer();
-  renderNextQuestion();
+  displayNextQuestion();
+  endQuiz();
 }
 
 $(runQuiz);

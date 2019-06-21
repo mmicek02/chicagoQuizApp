@@ -1,17 +1,58 @@
+@media screen and (max-width: 425px) {
+    body {
+        background-image: url("images/chicagoBG.jpg");
+        background-repeat: no-repeat; /* Do not repeat the image */
+        color: #fff;
+        font-family: sans-serif;
+    }
+    .startQuiz {
+        display: block;
+        text-align: center;
+        width: 50%;
+    }
+    .questionAndScore {
+        padding: 40px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 426px) and (max-width: 1024px) {
+    body {
+        background-image: url("images/chicagoWillisBG.jpg");
+        background-repeat: no-repeat; /* Do not repeat the image */
+        color: #fff;
+        font-family: sans-serif;
+    }
+    .startQuiz {
+        display: block;
+        text-align: center;
+        width: 75%;
+    }
+    .questionAndScore {
+        padding: 40px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+@media screen and (min-width: 1025px) {
+    body {
+        background-image: url("images/chicagoBG.jpg");
+        background-position: fixed; 
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; /* Resize the background image to cover the entire container */
+        color: #fff;
+        font-family: sans-serif;
 
-body {
-    background-image: url("images/chicagoBG.jpg");
-    background-position: fixed; 
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    color: #fff;
-    font-family: sans-serif;
-
+    }
 }
 .startQuiz {
     display: block;
@@ -22,7 +63,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #363946;
+    color: #fff;
     font-size: 2em;
     text-transform: uppercase;
     font-weight: normal;
@@ -100,7 +141,7 @@ input[type=radio] {
 h2 {
     text-align: center;
     margin-bottom: 40px;
-    color: #363946;
+    color: #fff;
     text-transform: uppercase
 }
 form button {
@@ -126,6 +167,8 @@ form button:hover, form button:focus {
 .quizForm {
     display: none;
     width: 50%;
+    border-radius: 25px;
+    padding-bottom: 15px;
 }
 .questionAndScore {
     padding: 40px;
