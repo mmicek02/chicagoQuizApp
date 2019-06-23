@@ -1,14 +1,24 @@
 @media screen and (max-width: 425px) {
     body {
-        background-image: url("images/chicagoBG.jpg");
+        background-image: url("images/chicagotrainBG.jpg");
         background-repeat: no-repeat; /* Do not repeat the image */
-        color: #fff;
+        background-size: cover;
+        color: #CC0000;
         font-family: sans-serif;
     }
     .startQuiz {
         display: block;
         text-align: center;
-        width: 50%;
+        width: 75%;
+        margin-top: 150px;
+    }
+    .quizForm {
+        display: none;
+        width: 75%;
+        border-radius: 25px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        font-size: 2em;
     }
     .questionAndScore {
         padding: 40px;
@@ -20,9 +30,10 @@
 
 @media screen and (min-width: 426px) and (max-width: 1024px) {
     body {
-        background-image: url("images/chicagoWillisBG.jpg");
+        background: center/150% url("images/chicagotrainBG.jpg");
         background-repeat: no-repeat; /* Do not repeat the image */
-        color: #fff;
+        /*background-size: cover;*/
+        color: #CC0000;
         font-family: sans-serif;
     }
     .startQuiz {
@@ -169,12 +180,16 @@ form button:hover, form button:focus {
     width: 50%;
     border-radius: 25px;
     padding-bottom: 15px;
+    padding-top: 15px;
 }
 .questionAndScore {
     padding: 40px;
     display: block;
     margin: 0 auto;
     text-align: center;
+}
+.questionAndScore p {
+    font-size: 1.5em;
 }
 .feedback {
     display: block;
@@ -202,6 +217,13 @@ h3 {
     font-size: 40px;
     margin-bottom: 20px;
 }
+.results {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background: none;
+    padding-top: 200px;
+}
 .results p:first-of-type {
     font-size: 25px;
     margin-bottom: 10px;
@@ -213,4 +235,8 @@ h3 {
 }
 .restartButton {
     margin-top: 40px;
+    width: 200px;
+}
+.restartButton:hover, restartButton:focus {
+    width: 280px;
 }

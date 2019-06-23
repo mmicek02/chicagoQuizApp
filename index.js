@@ -26,8 +26,8 @@ const quizQuestions = [
   },
   {
       question: 'What are the two baseball teams from Chicago?',
-      answers: ['Bears, Snakes', 'Cubs, Soxs', 'Shirts, Soxs', 'Hawks, Sparrows'],
-      correctAnswer: 'Cubs, Soxs'
+      answers: ['Bears, Snakes', 'Cubs, Sox', 'Shirts, Socks', 'Hawks, Sparrows'],
+      correctAnswer: 'Cubs, Sox'
   },
   {
       question: 'Chicago held two worlds fairs, when were they?',
@@ -175,7 +175,7 @@ if (score >= 7) {
     `<div class="results correctFeedback">
       <h3>First time visiting?</h3>
       <p>You got ${score} / 10</p>
-      <p>You've got some learning ahead of you, maybe you should stick to the "Mag Mile”.</p>
+      <p>You've got some learning ahead of you, maybe you should stick to Navy Pier.</p>
       <button class="restartButton">Restart Quiz</button>
     </div>`);
 }
