@@ -3,7 +3,7 @@
         background-image: url("images/chicagotrainBG.jpg");
         background-repeat: no-repeat; /* Do not repeat the image */
         background-size: cover;
-        color: #CC0000;
+        color: #fff;
         font-family: sans-serif;
     }
     .startQuiz {
@@ -33,7 +33,7 @@
         background: center/150% url("images/chicagotrainBG.jpg");
         background-repeat: no-repeat; /* Do not repeat the image */
         /*background-size: cover;*/
-        color: #CC0000;
+        color: #fff;
         font-family: sans-serif;
     }
     .startQuiz {
@@ -209,11 +209,11 @@ form button:hover, form button:focus {
     margin-right: 20px;
 }
 .feedback span {
-    color: #CC0000;
+    color: #fff;
 }
 
 h3 {
-    color: #CC0000;
+    color: #fff;
     font-size: 40px;
     margin-bottom: 20px;
 }
